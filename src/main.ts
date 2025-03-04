@@ -1,15 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { WebSocketAdapter } from './websocket.adapter';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
-  const webSocketAdapter = app.get(WebSocketAdapter);
-  app.useWebSocketAdapter(webSocketAdapter);
 
   app.enableCors({
     origin: process.env.CLIENT_URL || '*',
