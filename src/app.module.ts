@@ -2,10 +2,13 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Chatbot } from './chatbot.gateway'; 
+import { EventsGateway } from './events.gateway';
 
 @Module({
   imports: [],
   controllers: [AppController],
-  providers: [AppService, Chatbot],
+  providers: [AppService, Chatbot, EventsGateway],
 })
-export class AppModule {}
+
+
+export class AppModule {} 
